@@ -63,6 +63,8 @@ public final class YarnSubmissionHelper implements AutoCloseable {
   private String driverStderrFilePath;
   private Class launcherClazz = REEFLauncher.class;
   private List<String> configurationFilePaths;
+  private int driverMemoryMB;
+  private String driverHostName;
 
   public YarnSubmissionHelper(final YarnConfiguration yarnConfiguration,
                               final REEFFileNames fileNames,
@@ -141,7 +143,17 @@ public final class YarnSubmissionHelper implements AutoCloseable {
    * @return
    */
   public YarnSubmissionHelper setDriverMemory(final int megabytes) {
-    applicationSubmissionContext.setResource(Resource.newInstance(getMemory(megabytes), 1));
+    this.driverMemoryMB = getMemory(megabytes);
+    return this;
+  }
+
+  /**
+   * Set the amount of memory to be allocated to the Driver.
+   * @param megabytes
+   * @return
+   */
+  public YarnSubmissionHelper setDriverNode(final String hostName) {
+    this.driverHostName = hostName;
     return this;
   }
 
@@ -276,6 +288,17 @@ public final class YarnSubmissionHelper implements AutoCloseable {
       LOG.log(Level.WARNING, "Application will not be restarted even though preserve evaluators is set to true" +
           " since the max application submissions is 1. Proceeding to submit application...");
     }
+
+    // We always set `relaxLocality` to `false` if `setDriverNode()` is called with a non-wildcard argument.
+    final boolean relaxLocality = this.driverHostName.equals("*");
+    final int vcores = 1;
+    final int numContainers = 1;
+    // According to docs for `ApplicationSubmissionContext.getAMContainerResourceRequest()`,
+    // the arguments `priority` and `numContainers` to `ResourceRequest.newInstance()` are ignored.
+    this.applicationSubmissionContext.setAMContainerResourceRequest(
+        ResourceRequest.newInstance(
+            Priority.UNDEFINED, this.driverHostName, Resource.newInstance(
+                this.driverMemoryMB, vcores), numContainers, relaxLocality));
 
     final ContainerLaunchContext containerLaunchContext = YarnTypes.getContainerLaunchContext(
         launchCommand, this.resources, tokenProvider.getTokens());
