@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.apache.reef</groupId>
-  <artifactId>reef-io</artifactId>
+  <artifactId>reef-checkpoint</artifactId>
   <versioning>
     <versions>
       <version>0.14.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160105202855</lastUpdated>
+    <lastUpdated>20160105202924</lastUpdated>
   </versioning>
 </metadata>
