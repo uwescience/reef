@@ -26,6 +26,18 @@ under the License.
         <version>0.14.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tang-test-jarB-conflictA</artifactId>
-    <name>Tang Test Jar B conflict A</name>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>tang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>${reflections.version}</version>
+        </dependency>
+    </dependencies>
+
+    <artifactId>tang-tint</artifactId>
+    <name>REFF Tang Tint</name>
 </project>
