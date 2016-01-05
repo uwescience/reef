@@ -20,9 +20,9 @@ under the License.
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>reef-bridge-java</artifactId>
-    <name>REEF Bridge Java</name>
-    <description>Bridge between JVM and CLR.</description>
+    <artifactId>reef-bridge-client</artifactId>
+    <name>REEF Bridge (Client)</name>
+    <description>The Client side of the REEF Bridge</description>
 
     <parent>
         <groupId>org.apache.reef</groupId>
@@ -49,6 +49,11 @@ under the License.
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>reef-runtime-hdinsight</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>reef-io</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -63,9 +68,41 @@ under the License.
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.reef</groupId>
+            <artifactId>reef-bridge-java</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
         </dependency>
+
+        <!-- Adding Hadoop to make sure we have it in the shaded jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-client</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-common</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -82,16 +119,20 @@ under the License.
         </pluginManagement>
         <plugins>
             <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>false</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.apache.reef.javabridge.JavaBridge</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>schema</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
+                            <outputDirectory>${project.basedir}/target/generated-sources/avro/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -121,35 +162,6 @@ under the License.
                         </filter>
                     </filters>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <exportAntProperties>true</exportAntProperties>
-                            <target>
-                                <property name="runtime_classpath" refid="maven.compile.classpath"/>
-                                <exec executable="javah">
-                                    <arg value="-cp"/>
-                                    <arg value="${runtime_classpath}"/>
-                                    <arg value="-d"/>
-                                    <arg value="${project.build.directory}/classes"/>
-                                    <arg value="org.apache.reef.javabridge.NativeInterop"/>
-                                </exec>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
