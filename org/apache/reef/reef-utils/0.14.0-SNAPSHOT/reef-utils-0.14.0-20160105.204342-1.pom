@@ -27,6 +27,10 @@ under the License.
         <relativePath>../../..</relativePath>
     </parent>
 
+    <artifactId>reef-utils</artifactId>
+    <name>REEF Utils</name>
+    <description>Utilities used across REEF modules.</description>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -41,6 +45,21 @@ under the License.
         </pluginManagement>
     </build>
 
-    <artifactId>reef-annotations</artifactId>
-    <name>REEF Annotations</name>
+    <!-- This module shouldn't have many dependencies to make sure it is broadly usable across reef subprojects -->
+    <dependencies>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.jcip</groupId>
+            <artifactId>jcip-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
