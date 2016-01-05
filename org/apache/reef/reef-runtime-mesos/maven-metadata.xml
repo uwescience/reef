@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.apache.reef</groupId>
-  <artifactId>reef-bridge-client</artifactId>
+  <artifactId>reef-runtime-mesos</artifactId>
   <versioning>
     <versions>
       <version>0.14.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160105205158</lastUpdated>
+    <lastUpdated>20160105205227</lastUpdated>
   </versioning>
 </metadata>
