@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata modelVersion="1.1.0">
   <groupId>org.apache.reef</groupId>
-  <artifactId>reef-checkpoint</artifactId>
+  <artifactId>reef-bridge-java</artifactId>
   <version>0.14.0-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20160105.205055</timestamp>
+      <timestamp>20160105.205128</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20160105205055</lastUpdated>
+    <lastUpdated>20160105205128</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.14.0-20160105.205055-1</value>
-        <updated>20160105205055</updated>
+        <value>0.14.0-20160105.205128-1</value>
+        <updated>20160105205128</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.14.0-20160105.205055-1</value>
-        <updated>20160105205055</updated>
+        <value>0.14.0-20160105.205128-1</value>
+        <updated>20160105205128</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
