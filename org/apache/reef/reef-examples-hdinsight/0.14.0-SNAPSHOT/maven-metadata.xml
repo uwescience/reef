@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata modelVersion="1.1.0">
   <groupId>org.apache.reef</groupId>
-  <artifactId>reef-examples-clr</artifactId>
+  <artifactId>reef-examples-hdinsight</artifactId>
   <version>0.14.0-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20160105.203250</timestamp>
+      <timestamp>20160105.203319</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20160105203250</lastUpdated>
+    <lastUpdated>20160105203319</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.14.0-20160105.203250-1</value>
-        <updated>20160105203250</updated>
+        <value>0.14.0-20160105.203319-1</value>
+        <updated>20160105203319</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.14.0-20160105.203250-1</value>
-        <updated>20160105203250</updated>
+        <value>0.14.0-20160105.203319-1</value>
+        <updated>20160105203319</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
