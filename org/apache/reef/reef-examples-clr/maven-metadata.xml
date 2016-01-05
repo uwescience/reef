@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.apache.reef</groupId>
-  <artifactId>reef-examples</artifactId>
+  <artifactId>reef-examples-clr</artifactId>
   <versioning>
     <versions>
       <version>0.14.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160105203223</lastUpdated>
+    <lastUpdated>20160105203250</lastUpdated>
   </versioning>
 </metadata>
