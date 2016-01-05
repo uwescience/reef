@@ -26,13 +26,6 @@ under the License.
         <version>0.14.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tang-test-jarAB</artifactId>
-    <name>Tang Test Jar AB</name>
-
-    <dependencies>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>tang-test-jarB-conflictA</artifactId>
+    <name>Tang Test Jar B conflict A</name>
 </project>

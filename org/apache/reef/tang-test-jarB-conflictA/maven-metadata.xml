@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.apache.reef</groupId>
-  <artifactId>tang-test-jarAB</artifactId>
+  <artifactId>tang-test-jarB-conflictA</artifactId>
   <versioning>
     <versions>
       <version>0.14.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160105205455</lastUpdated>
+    <lastUpdated>20160105205500</lastUpdated>
   </versioning>
 </metadata>
