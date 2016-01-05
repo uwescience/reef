@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.apache.reef</groupId>
-  <artifactId>reef-runtime-hdinsight</artifactId>
+  <artifactId>reef-webserver</artifactId>
   <versioning>
     <versions>
       <version>0.14.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160105204858</lastUpdated>
+    <lastUpdated>20160105204926</lastUpdated>
   </versioning>
 </metadata>
