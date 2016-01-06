@@ -837,27 +837,27 @@ under the License.
     </distributionManagement>
 
     <modules>
-        <module>lang/cs</module>
+        <!-- <module>lang/cs</module> -->
         <module>lang/java/reef-annotations</module>
-        <module>lang/java/reef-applications</module>
-        <module>lang/java/reef-bridge-client</module>
-        <module>lang/java/reef-bridge-java</module>
-        <module>lang/java/reef-checkpoint</module>
+        <!-- <module>lang/java/reef-applications</module> -->
+        <!-- <module>lang/java/reef-bridge-client</module> -->
+        <!-- <module>lang/java/reef-bridge-java</module> -->
+        <!-- <module>lang/java/reef-checkpoint</module> -->
         <module>lang/java/reef-common</module>
-        <module>lang/java/reef-examples</module>
-        <module>lang/java/reef-examples-clr</module>
-        <module>lang/java/reef-examples-hdinsight</module>
-        <module>lang/java/reef-io</module>
-        <module>lang/java/reef-poison</module>
-        <module>lang/java/reef-runtime-hdinsight</module>
+        <!-- <module>lang/java/reef-examples</module> -->
+        <!-- <module>lang/java/reef-examples-clr</module> -->
+        <!-- <module>lang/java/reef-examples-hdinsight</module> -->
+        <!-- <module>lang/java/reef-io</module> -->
+        <!-- <module>lang/java/reef-poison</module> -->
+        <!-- <module>lang/java/reef-runtime-hdinsight</module> -->
         <module>lang/java/reef-runtime-local</module>
         <module>lang/java/reef-runtime-yarn</module>
-        <module>lang/java/reef-runtime-mesos</module>
-        <module>lang/java/reef-runtime-multi</module>
+        <!-- <module>lang/java/reef-runtime-mesos</module> -->
+        <!-- <module>lang/java/reef-runtime-multi</module> -->
         <module>lang/java/reef-tang</module>
-        <module>lang/java/reef-tests</module>
+        <!-- <module>lang/java/reef-tests</module> -->
         <module>lang/java/reef-wake</module>
-        <module>lang/java/reef-webserver</module>
+        <!-- <module>lang/java/reef-webserver</module> -->
         <module>lang/java/reef-utils-hadoop</module>
         <module>lang/java/reef-utils</module>
         <!-- <module>website</module> -->
