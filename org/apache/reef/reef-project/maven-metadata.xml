@@ -4,8 +4,8 @@
   <artifactId>reef-project</artifactId>
   <versioning>
     <versions>
-      <version>0.14.0-SNAPSHOT</version>
+      <version>0.16.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160106055923</lastUpdated>
+    <lastUpdated>20160717231117</lastUpdated>
   </versioning>
 </metadata>

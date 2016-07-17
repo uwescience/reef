@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.apache.reef</groupId>
+  <artifactId>reef-project</artifactId>
+  <version>0.16.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20160717.231117</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20160717231117</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.16.0-20160717.231117-1</value>
+        <updated>20160717231117</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
