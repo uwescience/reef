@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.apache.reef</groupId>
+  <artifactId>reef-runtime-standalone</artifactId>
+  <versioning>
+    <versions>
+      <version>0.16.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20160722164644</lastUpdated>
+  </versioning>
+</metadata>
