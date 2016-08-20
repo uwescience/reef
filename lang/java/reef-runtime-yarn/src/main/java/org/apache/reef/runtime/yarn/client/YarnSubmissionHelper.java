@@ -273,22 +273,6 @@ public final class YarnSubmissionHelper implements AutoCloseable {
   }
 
   public void submit() throws IOException, YarnException {
-
-    // SET EXEC COMMAND
-    final List<String> launchCommand = new JavaLaunchCommandBuilder(launcherClazz, commandPrefixList)
-        .setConfigurationFilePaths(configurationFilePaths)
-        .setClassPath(this.classpath.getDriverClasspath())
-        .setMemory(this.applicationSubmissionContext.getResource().getMemory())
-        .setStandardOut(driverStdoutFilePath)
-        .setStandardErr(driverStderrFilePath)
-        .build();
-
-    if (this.applicationSubmissionContext.getKeepContainersAcrossApplicationAttempts() &&
-        this.applicationSubmissionContext.getMaxAppAttempts() == 1) {
-      LOG.log(Level.WARNING, "Application will not be restarted even though preserve evaluators is set to true" +
-          " since the max application submissions is 1. Proceeding to submit application...");
-    }
-
     // We always set `relaxLocality` to `false` if `setDriverNode()` is called with a non-wildcard argument.
     final boolean relaxLocality = this.driverHostName.equals("*");
     final int vcores = 1;
@@ -299,6 +283,21 @@ public final class YarnSubmissionHelper implements AutoCloseable {
         ResourceRequest.newInstance(
             Priority.UNDEFINED, this.driverHostName, Resource.newInstance(
                 this.driverMemoryMB, vcores), numContainers, relaxLocality));
+
+    // SET EXEC COMMAND
+    final List<String> launchCommand = new JavaLaunchCommandBuilder(launcherClazz, commandPrefixList)
+        .setConfigurationFilePaths(configurationFilePaths)
+        .setClassPath(this.classpath.getDriverClasspath())
+        .setMemory(this.applicationSubmissionContext.getAMContainerResourceRequest().getCapability().getMemory())
+        .setStandardOut(driverStdoutFilePath)
+        .setStandardErr(driverStderrFilePath)
+        .build();
+
+    if (this.applicationSubmissionContext.getKeepContainersAcrossApplicationAttempts() &&
+        this.applicationSubmissionContext.getMaxAppAttempts() == 1) {
+      LOG.log(Level.WARNING, "Application will not be restarted even though preserve evaluators is set to true" +
+          " since the max application submissions is 1. Proceeding to submit application...");
+    }
 
     final ContainerLaunchContext containerLaunchContext = YarnTypes.getContainerLaunchContext(
         launchCommand, this.resources, tokenProvider.getTokens());
